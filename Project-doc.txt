@@ -1,0 +1,45 @@
+//first create a foldar , 
+// in the folder create another folder known as frontend folder .
+//install all dependency ..
+//install a package react router dom .
+
+// clear all non-use things , and in index .css file give some basisc css for my website ,
+//in index.html chnage the website name //title .
+// in src create two new foldar , one is component ,and another is pages .
+// in components  we create all the components , 
+// and in the pages we create all pages.// multiple pages for my react projects .
+
+//create a new foldar in the components foldar , kanown as navbar .
+//also another foldar , known as navbar.css .
+// and after making the foldar , render the folder in app.jsx .
+//then add alll assects in assects file , and create two file one is is , for two asscets foldar , known as assects.js file , where i import and export all images ...
+// reate a object list of the menu items ..
+
+//after that creating a navbar , and then in the pages folder  , i created three more folder , cart folder , home folder , and placeorder folder , 
+
+//also all css folder also ..
+
+
+//and in main jsx , remove the strict mode and add the 
+ <BrowserRouter>
+   <App/>
+   
+  </BrowserRouter>
+  forwrape the app component.
+
+  //then in app.js file setup the routes .
+
+  //in components folder create another folder , like header , then menu .
+
+  //in assects.js create a objcet .
+  //where all the menu obj are swaing , 
+
+  //create the menu items ...
+
+  //we will creat ethe food display component , where we display the multiple food items .
+
+  //thats why we need to use or build or setup the context api in my projects ..
+
+
+
+

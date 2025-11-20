@@ -1,0 +1,64 @@
+/* AppDownload.css */
+.app-download {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-download:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 140, 0, 0.35);
+}
+
+.app-download p {
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+.app-download p br {
+  display: none; /* hide line break on small screens */
+}
+
+.app-download-platforms {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.app-download-platforms img {
+  width: 140px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+}
+
+.app-download-platforms img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 140, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .app-download {
+    padding: 30px 15px;
+  }
+  .app-download p {
+    font-size: 16px;
+  }
+  .app-download p br {
+    display: block;
+  }
+  .app-download-platforms img {
+    width: 120px;
+  }
+}

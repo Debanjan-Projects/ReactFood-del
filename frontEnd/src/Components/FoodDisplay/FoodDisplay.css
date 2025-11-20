@@ -1,0 +1,65 @@
+/* FOOD DISPLAY WRAPPER  */
+.food-display {
+    padding: 70px 0;
+    width: 100%;
+    text-align: center;
+}
+
+/*  TITLE  */
+.food-display-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #181616;
+    margin-bottom: 12px;
+}
+
+/*  SUB TEXT  */
+.food-display-subtext {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #2c1414;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* FOOD LIST GRID */
+.food-display-list {
+    margin-top: 50px;
+
+    /* FIX 100%: prevent overlap */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+
+    /* GOOD GAP between items */
+    gap: 26px;
+
+    /* Adding padding so edges don’t touch screen */
+    padding: 0 30px;
+}
+
+/*  CARD HOVER EFFECT */
+.food-display-list > * {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.food-display-list > *:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.15);
+}
+
+/*  RESPONSIVE FIXES  */
+@media (max-width: 768px) {
+    .food-display-list {
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 35px;   /* smaller gap for tablet */
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .food-display-list {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 25px;   /* smaller mobile spacing */
+        padding: 0 12px;
+    }
+}

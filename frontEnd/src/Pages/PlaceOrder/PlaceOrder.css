@@ -1,0 +1,348 @@
+/* PlaceOrder.css */
+.place-order {
+  display: flex;
+  gap: 50px;
+  margin: 50px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.place-order-left {
+  flex: 1;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e8e8;
+}
+
+.place-order-right {
+  flex: 1;
+  max-width: 400px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #3498db;
+  display: block;
+}
+
+.place-order-left input {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 2px solid #e8e8e8;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+}
+
+.place-order-left input:focus {
+  outline: none;
+  border-color: #3498db;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  transform: translateY(-2px);
+}
+
+.place-order-left input::placeholder {
+  color: #95a5a6;
+  font-weight: 400;
+}
+
+.multi-fields {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.multi-fields input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* Cart Total Styles */
+.cart-total {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 30px;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 20px;
+}
+
+.cart-total h2 {
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-total-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.cart-total-details p, .cart-total-details b {
+  margin: 0;
+  font-weight: 500;
+}
+
+.cart-total-details b {
+  font-size: 18px;
+  color: #f1c40f;
+}
+
+.cart-total hr {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 20px 0;
+}
+
+/* Button Styles */
+.cart-total button {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(45deg, #f1c40f, #f39c12);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+}
+
+.cart-total button:hover {
+  background: linear-gradient(45deg, #f39c12, #e67e22);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(243, 156, 18, 0.6);
+}
+
+.cart-total button:active {
+  transform: translateY(-1px);
+}
+
+.cart-total button:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Form Validation Styles */
+.place-order-left input:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: #e74c3c;
+  background-color: #fdf2f2;
+}
+
+.place-order-left input:valid:not(:focus):not(:placeholder-shown) {
+  border-color: #27ae60;
+  background-color: #f2fdf2;
+}
+
+/* Loading Animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.cart-total button.processing {
+  animation: pulse 1.5s infinite;
+  background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+}
+
+/* Success State */
+.cart-total button.success {
+  background: linear-gradient(45deg, #27ae60, #2ecc71);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .place-order {
+    flex-direction: column;
+    gap: 30px;
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+  
+  .place-order-right {
+    max-width: 100%;
+  }
+  
+  .place-order-left, .place-order-right {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .place-order {
+    margin: 20px auto;
+    gap: 20px;
+  }
+  
+  .place-order-left {
+    padding: 20px;
+  }
+  
+  .multi-fields {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .cart-total {
+    padding: 25px;
+  }
+  
+  .cart-total h2 {
+    font-size: 24px;
+  }
+  
+  .title {
+    font-size: 20px;
+  }
+  
+  .place-order-left input {
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  .cart-total button {
+    padding: 15px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .place-order {
+    margin: 15px auto;
+    padding: 0 10px;
+  }
+  
+  .place-order-left {
+    padding: 15px;
+  }
+  
+  .cart-total {
+    padding: 20px;
+  }
+  
+  .cart-total h2 {
+    font-size: 20px;
+  }
+  
+  .title {
+    font-size: 18px;
+  }
+  
+  .cart-total-details {
+    font-size: 14px;
+  }
+  
+  .cart-total-details b {
+    font-size: 16px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .place-order-left {
+    background: #2c3e50;
+    border-color: #34495e;
+  }
+  
+  .place-order-left input {
+    background-color: #34495e;
+    border-color: #4a6572;
+    color: white;
+  }
+  
+  .place-order-left input:focus {
+    background-color: #2c3e50;
+    border-color: #3498db;
+  }
+  
+  .place-order-left input::placeholder {
+    color: #bdc3c7;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .place-order {
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .cart-total button {
+    display: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .place-order-left input {
+    border-width: 3px;
+  }
+  
+  .cart-total {
+    border: 2px solid white;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .place-order-left input,
+  .cart-total button {
+    transition: none;
+  }
+  
+  .cart-total button:hover {
+    transform: none;
+  }
+}
+
+/* Custom Scrollbar for Webkit Browsers */
+.place-order-left::-webkit-scrollbar {
+  width: 8px;
+}
+
+.place-order-left::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.place-order-left::-webkit-scrollbar-thumb {
+  background: #3498db;
+  border-radius: 10px;
+}
+
+.place-order-left::-webkit-scrollbar-thumb:hover {
+  background: #2980b9;
+}
+
+/* Focus Visible for Accessibility */
+.place-order-left input:focus-visible,
+.cart-total button:focus-visible {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}

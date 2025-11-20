@@ -1,0 +1,140 @@
+/* Login.css */
+.login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(4px);
+}
+
+.login-container {
+  background: #111;
+  padding: 35px 30px;
+  border-radius: 20px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 25px rgba(255, 140, 0, 0.25);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.login-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-title h2 {
+  font-size: 24px;
+  color: #ff8c00;
+  font-weight: 600;
+}
+
+.login-title img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.login-title img:hover {
+  transform: rotate(90deg) scale(1.2);
+}
+
+.login-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-inputs input {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: none;
+  background: #222;
+  color: #fff;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.login-inputs input::placeholder {
+  color: #aaa;
+}
+
+.login-inputs input:focus {
+  outline: none;
+  background: #333;
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.4);
+}
+
+button {
+  background: #ff8c00;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #ffa733;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 140, 0, 0.35);
+}
+
+.login-condition {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.login-condition input[type="checkbox"] {
+  accent-color: #ff8c00;
+}
+
+.login p {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.login p span {
+  color: #ff8c00;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.login p span:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 25px 20px;
+  }
+  .login-title h2 {
+    font-size: 20px;
+  }
+  button {
+    font-size: 15px;
+  }
+}
