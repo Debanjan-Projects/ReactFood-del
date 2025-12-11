@@ -1,67 +1,130 @@
-import './NavBar.css'
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { StoreContext } from "../../Context/StoreContext.jsx";
 import { assets } from "../../assets/frontend_assets/assets.js";
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { StoreContext } from '../../Context/StoreContext.jsx';
+import "./NavBar.css";
 
-const NavBar = ({setShowLogin}) => {
+const NavBar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const { getTotalCartAmount } = useContext(StoreContext);
 
+  const navigate = useNavigate();
 
-  const {getTotalCartAmount} = useContext(StoreContext);
+  const closeMenuAndSet = (name) => {
+    setMenu(name);
+    setIsOpen(false);
+
+    // Scroll to top when Home is clicked
+    if (name === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim() !== "") {
+      navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
+      setSearchTerm("");
+      setIsOpen(false); // close mobile menu if open
+    }
+  };
 
   return (
-    <div className='navbar'>
-      
-      {/* Logo */}
-      <Link to='/'><img src={assets.logo} alt='logo' className='logo' /></Link>
+    <nav className="navbar">
 
-      {/* Menu Items */}
-      <ul className='navbar-menu'>
-        <Link to='/'
-          className={menu === "home" ? "active" : ""} 
-          onClick={() => setMenu("home")}
+      {/* LEFT - LOGO */}
+      <div className="navbar-left">
+        <Link 
+          to="/" 
+          className="logo-link"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          Home
+          <img src={assets.logo} alt="logo" className="logo" />
         </Link>
+      </div>
 
-        <a href='#explore-menu'
-          className={menu === "menu" ? "active" : ""} 
-          onClick={() => setMenu("menu")}
-        >
-          Menu
-        </a>
-
-        <a href='#app-download'
-          className={menu === "mobile-app" ? "active" : ""} 
-          onClick={() => setMenu("mobile-app")}
-        >
-          Mobile-App
-        </a>
-
-        <a href='#footer'
-          className={menu === "contact" ? "active" : ""} 
-          onClick={() => setMenu("contact")}
-        >
-          Contact Us
-        </a>
+      {/* DESKTOP MENU */}
+      <ul className="navbar-menu">
+        <li>
+          <Link to="/" className={menu === "home" ? "active" : ""} onClick={() => closeMenuAndSet("home")}>
+            Home
+          </Link>
+        </li>
+        <li>
+          <a href="#explore-menu" className={menu === "menu" ? "active" : ""} onClick={() => closeMenuAndSet("menu")}>
+            Menu
+          </a>
+        </li>
+        <li>
+          <a href="#app-download" className={menu === "mobile-app" ? "active" : ""} onClick={() => closeMenuAndSet("mobile-app")}>
+            Mobile-App
+          </a>
+        </li>
+        <li>
+          <a href="#footer" className={menu === "contact" ? "active" : ""} onClick={() => closeMenuAndSet("contact")}>
+            Contact Us
+          </a>
+        </li>
       </ul>
 
-      {/* Right Side Icons */}
-      <div className='navbar-right'>
+      {/* RIGHT SIDE */}
+      <div className="navbar-right">
 
-        <img src={assets.search_icon} alt='search' />
+        {/* Search Form */}
+        <form className="navbar-search-form" onSubmit={handleSearch}>
+          <input 
+            type="text" 
+            placeholder="Search food..." 
+            value={searchTerm} 
+            onChange={(e) => setSearchTerm(e.target.value)} 
+            className="navbar-search-input"
+          />
+          <button type="submit" className="navbar-search-btn">
+            <img src={assets.search_icon} alt="search" />
+          </button>
+        </form>
 
-        <div className='navbar-search-icon'>
-         <Link to='/cart'> <img src={assets.basket_icon} alt='basket' /></Link>
-
-          <div className={getTotalCartAmount()===0 ? "" : "dot"}></div>
+        {/* Cart */}
+        <div className="navbar-search-icon">
+          <Link to="/cart">
+            <img src={assets.basket_icon} alt="basket" className="icon" />
+          </Link>
+          <div className={getTotalCartAmount() === 0 ? "" : "dot"} />
         </div>
 
-        <button onClick={()=>setShowLogin(true)}
-        className='sign-in-btn'>Sign In</button>
+        {/* Sign In */}
+        <button onClick={() => setShowLogin(true)} className="sign-in-btn">
+          Sign In
+        </button>
+
+        {/* Hamburger (mobile only) */}
+        <button className={`hamburger ${isOpen ? "open" : ""}`} onClick={() => setIsOpen(!isOpen)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
       </div>
-    </div>
+
+      {/* MOBILE DROPDOWN */}
+      <ul className={`mobile-menu ${isOpen ? "open" : ""}`}>
+        <li>
+          <Link to="/" onClick={() => closeMenuAndSet("home")}>Home</Link>
+        </li>
+        <li>
+          <a href="#explore-menu" onClick={() => closeMenuAndSet("menu")}>Menu</a>
+        </li>
+        <li>
+          <a href="#app-download" onClick={() => closeMenuAndSet("mobile-app")}>Mobile-App</a>
+        </li>
+        <li>
+          <a href="#footer" onClick={() => closeMenuAndSet("contact")}>Contact Us</a>
+        </li>
+      </ul>
+
+    </nav>
   );
 };
 

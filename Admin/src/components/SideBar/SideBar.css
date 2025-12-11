@@ -1,0 +1,76 @@
+/*  Sidebar Wrapper (Perfect Responsive Positioning)*/
+.sidebar {
+  width: 240px;
+  position: fixed;
+  top: 82px;             /* Same as navbar height */
+  left: 0;
+  height: calc(100vh - 70px);
+  background: #fff;
+  border-right: 1px solid #e5e5e5;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.06);
+  z-index: 100;
+}
+
+
+/* Sidebar Options */
+.sidebar-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Option Style */
+.sidebar-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Icon */
+.sidebar-option img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: 0.25s ease;
+}
+
+/* Hover */
+.sidebar-option:hover {
+  background: #f0f2f5;
+}
+
+.sidebar-option:hover img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* Active */
+.sidebar-option.active {
+  background: #e5e9ff;
+  color: #3f51b5;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 201px;
+  }
+}
+
+@media (max-width: 500px) {
+  .sidebar {
+    width: 170px;
+  }
+}
