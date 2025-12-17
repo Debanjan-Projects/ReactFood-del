@@ -1,3 +1,21 @@
+:root {
+  --navbar-height: 70px; /* adjust according to your navbar */
+  --sidebar-width: 260px;
+  --sidebar-offset: 0px; /* extra offset if needed */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #f8fafc;
+}
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap');
 
 

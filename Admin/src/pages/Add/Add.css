@@ -1,0 +1,370 @@
+/* Add.css */
+
+.add {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.add::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    border-radius: 24px 24px 0 0;
+}
+
+/* Flex utility classes */
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form styling */
+.add form {
+    gap: 32px;
+}
+
+/* Section titles */
+.add p {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 12px;
+}
+
+.add p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 16px;
+    background: linear-gradient(to bottom, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+/* Image upload section */
+.add-img-upload {
+    align-items: center;
+    padding: 30px;
+    background: white;
+    border-radius: 16px;
+    border: 2px dashed #e2e8f0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.add-img-upload:hover {
+    border-color: #667eea;
+    background: linear-gradient(135deg, #f6f7ff 0%, #f9f7ff 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.1);
+}
+
+.add-img-upload:active {
+    transform: translateY(0);
+}
+
+.add-img-upload p {
+    font-size: 18px;
+    color: #4a5568;
+    margin-bottom: 20px;
+}
+
+.add-img-upload label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-img-upload label:hover img {
+    transform: scale(1.05);
+}
+
+.add-img-upload img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid #e2e8f0;
+}
+
+/* File upload info */
+.add-img-upload::after {
+    content: 'Click to upload or drag & drop';
+    font-size: 14px;
+    color: #a0aec0;
+    margin-top: 15px;
+    text-align: center;
+    display: block;
+}
+
+/* Input and textarea styling */
+.add-product-name input,
+.add-product-description textarea,
+.add-category select,
+.add-price input {
+    padding: 16px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #2d3748;
+    background: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit;
+}
+
+.add-product-name input:focus,
+.add-product-description textarea:focus,
+.add-category select:focus,
+.add-price input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+    transform: translateY(-1px);
+}
+
+.add-product-name input::placeholder,
+.add-product-description textarea::placeholder,
+.add-price input::placeholder {
+    color: #a0aec0;
+}
+
+/* Product description */
+.add-product-description textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+/* Category and price container */
+.add-category-price {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 768px) {
+    .add-category-price {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+/* Category select styling */
+.add-category select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 16px;
+    padding-right: 50px;
+    cursor: pointer;
+}
+
+.add-category select:hover {
+    border-color: #cbd5e0;
+}
+
+/* Price input specific styling */
+.add-price input {
+    -moz-appearance: textfield;
+}
+
+.add-price input::-webkit-outer-spin-button,
+.add-price input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Submit button */
+.add-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.add-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+}
+
+.add-btn:hover::before {
+    left: 100%;
+}
+
+.add-btn:active {
+    transform: translateY(0);
+}
+
+.add-btn:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .add {
+        margin: 20px;
+        padding: 30px 25px;
+    }
+    
+    .add form {
+        gap: 24px;
+    }
+    
+    .add-img-upload {
+        padding: 20px;
+    }
+    
+    .add-img-upload img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .add-btn {
+        padding: 16px 30px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .add {
+        margin: 10px;
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+    
+    .add-img-upload {
+        padding: 15px;
+    }
+    
+    .add-img-upload img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .add-product-name input,
+    .add-product-description textarea,
+    .add-category select,
+    .add-price input {
+        padding: 14px 16px;
+        font-size: 15px;
+    }
+    
+    .add-btn {
+        padding: 14px 25px;
+        font-size: 15px;
+    }
+}
+
+/* Animation for form elements */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.add-product-name,
+.add-product-description,
+.add-category-price,
+.add-img-upload {
+    animation: fadeInUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.add-product-name {
+    animation-delay: 0.1s;
+}
+
+.add-product-description {
+    animation-delay: 0.2s;
+}
+
+.add-category-price {
+    animation-delay: 0.3s;
+}
+
+.add-img-upload {
+    animation-delay: 0.4s;
+}
+
+/* Success message animation */
+@keyframes successPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(72, 187, 120, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(72, 187, 120, 0);
+    }
+}
+
+.success {
+    animation: successPulse 2s infinite;
+}
+
+/* Validation styles */
+.add-product-name input:invalid:not(:placeholder-shown),
+.add-product-description textarea:invalid:not(:placeholder-shown),
+.add-price input:invalid:not(:placeholder-shown) {
+    border-color: #fc8181;
+}
+
+.add-product-name input:valid:not(:placeholder-shown),
+.add-product-description textarea:valid:not(:placeholder-shown),
+.add-price input:valid:not(:placeholder-shown) {
+    border-color: #68d391;
+}

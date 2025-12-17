@@ -26,7 +26,7 @@ connectDB();
 //first we create for api endspoint for foodRoute .
 
 app.use("/api/food",foodRouter)
-app.use("/images",express.static('uploads'))
+app.use("/images", express.static(path.join(process.cwd(), "uploads")));
 
 
 

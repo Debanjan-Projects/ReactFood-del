@@ -1,87 +1,92 @@
-/*  Navbar Container  */
+/* =============================
+   NAVBAR CONTAINER
+============================= */
 .nav-container {
   width: 100%;
-  backdrop-filter: blur(12px) brightness(1.2);
-  background: rgba(0, 0, 0, 0.35);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  background: #0f172a; /* same as sidebar */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 1000;
 }
 
-/* ==== Layout ==== */
+/* =============================
+   NAVBAR LAYOUT
+============================= */
 .navbar {
-  max-width: 1300px;
+  max-width: 1200px;
   margin: auto;
-  padding: 14px 35px;
+  padding: 14px 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-/* Left Section (Logo + Brand)  */
+/* =============================
+   LEFT (LOGO + BRAND)
+============================= */
 .left {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .logo {
-  width: 55px;
-  height: 55px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
-  border-radius: 20px;
-  filter: drop-shadow(0px 2px 4px rgba(255, 255, 255, 0.5));
-  transition: 0.3s ease;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
-}
-
-.logo:hover {
-  transform: scale(1.05);
+  border-radius: 10px;
 }
 
 .brand {
-  font-size: 24px;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 1.5px;
-  text-shadow: 0px 2px 4px rgba(0,0,0,0.6);
+  font-size: 20px;
+  font-weight: 600;
+  color: #e5e7eb;
+  letter-spacing: 0.5px;
 }
 
-/*  Profile Image (Right) */
+/* =============================
+   RIGHT (PROFILE)
+============================= */
 .profile {
-  width: 55px;
-  height: 55px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(255,255,255,0.8);
-  box-shadow: 0 4px 15px rgba(255,255,255,0.4);
-  transition: 0.3s ease-in-out;
+  border: 2px solid #6366f1;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .profile:hover {
-  transform: scale(1.1);
-  border-color: #fff;
-  box-shadow: 0 6px 20px rgba(255,255,255,0.6);
+  transform: scale(1.08);
 }
 
-/* ==== Responsiveness ==== */
-@media (max-width: 600px) {
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 768px) {
   .navbar {
     padding: 12px 18px;
   }
-  
-  .logo,
+
+  .brand {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 36px;
+    height: 36px;
+  }
+
   .profile {
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
   }
 
   .brand {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
